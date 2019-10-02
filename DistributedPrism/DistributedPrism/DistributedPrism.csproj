@@ -5,8 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Syncfusion.Licensing" Version="17.2.0.51" />
+    <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="17.2.0.51" />
     <PackageReference Include="Xamarin.Forms" Version="3.6.0.344457" />
     <PackageReference Include="Prism.DryIoc.Forms" Version="7.2.0.1367" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DistributedProgrammingT2.Common\DistributedProgrammingT2.Common.csproj" />
   </ItemGroup>
 
 </Project>

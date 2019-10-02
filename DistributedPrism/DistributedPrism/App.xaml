@@ -3,9 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.DryIoc;assembly=Prism.DryIoc.Forms"
              x:Class="DistributedPrism.App">
-	<Application.Resources>
-
-		<!-- Application resource dictionary -->
-
-	</Application.Resources>
+    <Application.Resources>
+        <!-- Application resource dictionary -->
+        <ResourceDictionary>
+            <!-- Parameters -->
+            <x:String x:Key="UrlAPI">https://restcountries.eu/rest/v2/all</x:String>
+        </ResourceDictionary>
+    </Application.Resources>
 </prism:PrismApplication>

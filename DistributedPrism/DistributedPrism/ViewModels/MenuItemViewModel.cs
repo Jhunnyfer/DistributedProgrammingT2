@@ -14,9 +14,9 @@ namespace DistributedPrism.ViewModels
             _navigationService = navigationService;
         }
 
-        public DelegateCommand SelectMenuCommand => _selectMenuCommand ?? (_selectMenuCommand = new DelegateCommand(SelectMenu));
+        //public DelegateCommand SelectMenuCommand => _selectMenuCommand ?? (_selectMenuCommand = new DelegateCommand(SelectMenu));
 
-        private async void SelectMenu()
+        /*private async void SelectMenu()
         {
             if (PageName.Equals("LoginPage"))
             {
@@ -26,6 +26,6 @@ namespace DistributedPrism.ViewModels
 
             await _navigationService.NavigateAsync($"/VeterinaryMasterDetailPage/NavigationPage/{PageName}");
 
-        }
+        }*/
     }
 }
