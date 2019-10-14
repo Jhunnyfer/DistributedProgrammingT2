@@ -53,13 +53,6 @@ namespace DistributedPrism.ViewModels
             set => SetProperty(ref this.filter, value);
         }
 
-        public DelegateCommand NavigateCommandCountry => _navigateCommand ?? (_navigateCommand = new DelegateCommand(ExecuteNavigateCommmand));
-
-        async void ExecuteNavigateCommmand()
-        {
-            await _navigationService.NavigateAsync("Country");
-        }
-
         private async void LoadAllCountries() {
 
             var url = App.Current.Resources["UrlAPI"].ToString();

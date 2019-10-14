@@ -17,7 +17,7 @@ namespace DistributedPrism.ViewModels
             _navigationService = navigationService;
         }
 
-        public DelegateCommand SelectCountriesCommand => _selectCountriesCommand ?? (_selectCountriesCommand = new DelegateCommand(SelectCountry));
+        public DelegateCommand SelectCountryCommand => _selectCountriesCommand ?? (_selectCountriesCommand = new DelegateCommand(SelectCountry));
 
         private async void SelectCountry()
         {
@@ -28,5 +28,13 @@ namespace DistributedPrism.ViewModels
 
             await _navigationService.NavigateAsync("Country", parameters);
         }
+
+
+        /*public DelegateCommand NavigateCommandCountry => _navigateCommand ?? (_navigateCommand = new DelegateCommand(ExecuteNavigateCommmand));
+
+        async void ExecuteNavigateCommmand()
+        {
+            await _navigationService.NavigateAsync("Country");
+        }*/
     }
 }
