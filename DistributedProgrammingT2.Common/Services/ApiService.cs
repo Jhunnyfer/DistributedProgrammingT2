@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -9,7 +10,7 @@ using Plugin.Connectivity;
 
 namespace DistributedProgrammingT2.Common.Services
 {
-    class ApiService : IApiService
+    public class ApiService : IApiService
     {
         public async Task<bool> CheckConnection(string url)
         {
@@ -21,7 +22,7 @@ namespace DistributedProgrammingT2.Common.Services
             return await CrossConnectivity.Current.IsRemoteReachable(url);
         }
 
-        public async Task<Response<CountriesResponse>> GetCountries(
+        public async Task<Response<List<CountryResponse>>> GetCountries(
             string urlBase,
             string servicePrefix,
             string controller)
@@ -37,28 +38,33 @@ namespace DistributedProgrammingT2.Common.Services
                 };
 
                 var url = $"{servicePrefix}{controller}";
-                var response = await client.PostAsync(url, content);
+
+                //System.Console.WriteLine("URL API:");
+                //System.Console.WriteLine(url);
+
+                var response = await client.GetAsync(url);
                 var result = await response.Content.ReadAsStringAsync();
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return new Response<CountriesResponse>
+                    return new Response<List<CountryResponse>>
                     {
                         IsSuccess = false,
                         Message = result,
                     };
                 }
 
-                var countries = JsonConvert.DeserializeObject<CountriesResponse>(result);
-                return new Response<CountriesResponse>
+                var countries = JsonConvert.DeserializeObject<List<CountryResponse>>(result);
+
+                return new Response<List<CountryResponse>>
                 {
                     IsSuccess = true,
-                    Result = countries 
+                    Result = countries
                 };
             }
             catch (Exception ex)
             {
-                return new Response<CountriesResponse>
+                return new Response<List<CountryResponse>>
                 {
                     IsSuccess = false,
                     Message = ex.Message

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="DistributedPrism.Views.CountriesPage"
+             Title="{Binding Title}">
+    <StackLayout
+        Padding="10">
+        <SearchBar x:Name="CountriesSearchBar"  
+                 Text="{ Binding Filter, Mode=TwoWay}"
+                 Placeholder="Search..."
+                 BackgroundColor="#FBCBF3"
+                 SearchCommand="{ Binding SearchCommand}"  
+                 />
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="48"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label
+                Grid.Column="0"
+                FontAttributes="Bold"
+                Text="Country"/>
+            <Label
+                Grid.Column="1"
+                FontAttributes="Bold"
+                Text="Capital"/>
+            <Label
+                Grid.Column="2"
+                FontAttributes="Bold"
+                Text="NativeName"/>
+        </Grid>
+        <ListView
+            HasUnevenRows="True"
+            BackgroundColor="Transparent"
+            SeparatorVisibility="None"
+            ItemsSource="{Binding ListCountries}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame
+                            CornerRadius="10"
+                            HasShadow="True"
+                            Margin="0,0,0,5">
+                            <Grid>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectHistoryCommand}"/>
+                                </Grid.GestureRecognizers>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label
+                                Grid.Column="0"
+                                Text="{Binding Name}"
+                                VerticalOptions="Center"/>
+                                <Label
+                                Grid.Column="1"
+                                Text="{Binding Capital}"
+                                VerticalOptions="Center"/>
+                                <Label
+                                Grid.Column="2"
+                                Text="{Binding NativeName}"
+                                VerticalOptions="Center"/>
+                                <Image
+                                Grid.Column="3"
+                                Source="ic_chevron_right"/>
+                            </Grid>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+ 
+</ContentPage>

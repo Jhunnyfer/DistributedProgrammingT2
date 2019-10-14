@@ -11,9 +11,20 @@ namespace DistributedProgrammingT2.Common.Services
     public interface IApiService
     {
 
-        Task<Response<CountriesResponse>> GetCountries(string urlBase,string servicePrefix,string controller);
+        Task<Response<List<CountryResponse>>> GetCountries(string urlBase,string servicePrefix,string controller);
 
         Task<bool> CheckConnection(string url);
+
+
+
+        /*Task<Response<List<T>>> GetListAsync<T>(
+            string urlBase,
+            string servicePrefix,
+            string controller,
+            string tokenType,
+            string accessToken);*/
+
+
 
     }
 }

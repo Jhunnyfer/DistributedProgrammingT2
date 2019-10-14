@@ -4,6 +4,11 @@ using DistributedPrism.ViewModels;
 using DistributedPrism.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using DistributedProgrammingT2.Common.Services;
+using DistributedProgrammingT2.Common.Helpers;
+using DistributedProgrammingT2.Common.Models;
+using Newtonsoft.Json;
+using System;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace DistributedPrism
@@ -25,13 +30,15 @@ namespace DistributedPrism
 
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("NavigationPage/CountriesPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
+            containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<Country, CountryViewModel>();
+            containerRegistry.RegisterForNavigation<CountriesPage, CountriesPageViewModel>();
         }
     }
 }
