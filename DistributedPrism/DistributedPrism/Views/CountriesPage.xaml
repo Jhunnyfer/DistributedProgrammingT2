@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DistributedPrism.Views.CountriesPage"
@@ -19,7 +20,6 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="48"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -28,15 +28,15 @@
             <Label
                 Grid.Column="0"
                 FontAttributes="Bold"
-                Text="Country"/>
+                Text=" "/>
             <Label
                 Grid.Column="1"
                 FontAttributes="Bold"
-                Text="Capital"/>
+                Text="Country"/>
             <Label
                 Grid.Column="2"
                 FontAttributes="Bold"
-                Text="NativeName"/>
+                Text="#"/>
         </Grid>
         <ListView
             HasUnevenRows="True"
@@ -54,29 +54,39 @@
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding SelectHistoryCommand}"/>
                                 </Grid.GestureRecognizers>
+
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
+                                
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="
+                                                   Auto"/>
                                 </Grid.RowDefinitions>
-                                <Label
-                                Grid.Column="0"
-                                Text="{Binding Name}"
-                                VerticalOptions="Center"/>
-                                <Label
-                                Grid.Column="1"
-                                Text="{Binding Capital}"
-                                VerticalOptions="Center"/>
-                                <Label
-                                Grid.Column="2"
-                                Text="{Binding NativeName}"
-                                VerticalOptions="Center"/>
+                                <ffimageloadingsvg:SvgCachedImage
+                                    Grid.Column="0"
+                                    HeightRequest="30"
+                                    WidthRequest="60"
+                                    Source="{ Binding Flag }"/>
+                                <StackLayout 
+                                        Grid.Column="1"
+                                        VerticalOptions="Center">
+                                    <Label 
+                                            FontAttributes="Bold"
+                                            FontSize="Medium" 
+                                            Text="{Binding Name}"
+                                            TextColor="Black">
+                                    </Label>
+                                    <Label 
+                                            Text="{Binding Capital}"
+                                            TextColor="Black">
+                                    </Label>
+                                </StackLayout>
+                                
                                 <Image
-                                Grid.Column="3"
+                                Grid.Column="2"
                                 Source="ic_chevron_right"/>
                             </Grid>
                         </Frame>

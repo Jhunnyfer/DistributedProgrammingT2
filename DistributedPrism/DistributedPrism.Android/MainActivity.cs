@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using FFImageLoading.Svg.Forms;
 using Prism;
 using Prism.Ioc;
 using Syncfusion.SfBusyIndicator.XForms.Droid;
@@ -19,6 +20,7 @@ namespace DistributedPrism.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init(true);
+            var ignore = typeof(SvgCachedImage);
             new SfBusyIndicatorRenderer();
             LoadApplication(new App(new AndroidInitializer()));
         }
