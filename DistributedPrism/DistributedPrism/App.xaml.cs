@@ -37,8 +37,10 @@ namespace DistributedPrism
         {
             containerRegistry.Register<IApiService, ApiService>();
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<Country, CountryViewModel>();
+            containerRegistry.RegisterForNavigation<CountryPage, CountryPageViewModel>();
             containerRegistry.RegisterForNavigation<CountriesPage, CountriesPageViewModel>();
+            containerRegistry.RegisterForNavigation<MapCountriesPage, MapCountriesPageViewModel>();
+            containerRegistry.RegisterForNavigation<MapCountryPage, MapCountryPageViewModel>();
         }
     }
 }

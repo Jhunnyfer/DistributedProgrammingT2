@@ -7,17 +7,18 @@ using Prism.Navigation;
 using Newtonsoft.Json;
 using DistributedProgrammingT2.Common.Models;
 using DistributedProgrammingT2.Common.Helpers;
+using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 
 namespace DistributedPrism.ViewModels
 {
-    public class CountryViewModel : ViewModelBase
+    public class CountryPageViewModel : ViewModelBase
     {
-        private readonly INavigationService _navigationService;
         private CountryResponse _country;
 
-        public CountryViewModel(INavigationService navigationService):base(navigationService)
+        public CountryPageViewModel(INavigationService navigationService):base(navigationService)
         {
-            Title = "Country";
+           // Title = "";
         }
 
 
@@ -30,8 +31,15 @@ namespace DistributedPrism.ViewModels
 
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
-            base.OnNavigatedTo(parameters);
-            _country = JsonConvert.DeserializeObject<CountryResponse>(Settings.Countries);
+            if (parameters.ContainsKey("country"))
+            {
+                base.OnNavigatedTo(parameters);
+                //_country = JsonConvert.DeserializeObject<CountryResponse>(Settings.Countries);
+                Country = parameters.GetValue<CountryResponse>("country");
+                Title = _country.Name;
+
+               
+            }
         }
     }
 }

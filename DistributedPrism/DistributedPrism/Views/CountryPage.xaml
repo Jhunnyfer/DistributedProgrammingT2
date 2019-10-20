@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="DistributedPrism.Views.CountryPage"
+             Title="{Binding Title}"
+             >
+
+    <StackLayout
+        Padding="10">
+        <ScrollView>
+            <StackLayout>
+                <ffimageloadingsvg:SvgCachedImage
+                                    Grid.Column="0"
+                                    HeightRequest="30"
+                                    WidthRequest="60"
+                                    Source="{ Binding Country.Flag }"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        FontAttributes="Bold"
+                        Text="Name"/>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        Text="{Binding Country.Name}"/>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        FontAttributes="Bold"
+                        Text="Capital"/>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="1"
+                        Text="{Binding Country.Capital}"/>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="3"
+                        FontAttributes="Bold"
+                        Text="Native Name"/>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="3"
+                        Text="{Binding Country.NativeName}"/>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="4"
+                        FontAttributes="Bold"
+                        Text="Area"/>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        Text="{Binding Country.Area}"/>
+                </Grid>
+                
+                <maps:Map x:Name="MapView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                        
+                
+            </StackLayout>
+            
+
+        </ScrollView>
+       
+    </StackLayout>
+  
+</ContentPage>

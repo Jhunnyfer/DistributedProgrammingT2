@@ -8,92 +8,108 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DistributedPrism.Views.CountriesPage"
              Title="{Binding Title}">
-    <StackLayout
+    <AbsoluteLayout>
+        <StackLayout
         Padding="10">
-        <SearchBar x:Name="CountriesSearchBar"  
+            <SearchBar x:Name="CountriesSearchBar"  
                  Text="{ Binding Filter, Mode=TwoWay}"
                  Placeholder="Search..."
                  BackgroundColor="#FBCBF3"
                  SearchCommand="{ Binding SearchCommand}"  
                  />
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="48"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-            <Label
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="48"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label
                 Grid.Column="0"
                 FontAttributes="Bold"
                 Text=" "/>
-            <Label
+                <Label
                 Grid.Column="1"
                 FontAttributes="Bold"
                 Text="Country"/>
-            <Label
+                <Label
                 Grid.Column="2"
                 FontAttributes="Bold"
                 Text="#"/>
-        </Grid>
-        <ListView
+            </Grid>
+            <ListView
             HasUnevenRows="True"
             BackgroundColor="Transparent"
             SeparatorVisibility="None"
             ItemsSource="{Binding ListCountries}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Frame
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
                             CornerRadius="10"
                             HasShadow="True"
                             Margin="0,0,0,5">
-                            <Grid>
-                                <Grid.GestureRecognizers>
-                                    <TapGestureRecognizer Command="{Binding SelectCountryCommand}"/>
-                                </Grid.GestureRecognizers>
+                                <Grid>
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding SelectCountryCommand}"/>
+                                    </Grid.GestureRecognizers>
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="
                                                    Auto"/>
-                                </Grid.RowDefinitions>
-                                <ffimageloadingsvg:SvgCachedImage
+                                    </Grid.RowDefinitions>
+                                    <ffimageloadingsvg:SvgCachedImage
                                     Grid.Column="0"
                                     HeightRequest="30"
                                     WidthRequest="60"
                                     Source="{ Binding Flag }"/>
-                                <StackLayout 
+                                    <StackLayout 
                                         Grid.Column="1"
                                         VerticalOptions="Center">
-                                    <Label 
+                                        <Label 
                                             FontAttributes="Bold"
                                             FontSize="Medium" 
                                             Text="{Binding Name}"
                                             TextColor="Black">
-                                    </Label>
-                                    <Label 
+                                        </Label>
+                                        <Label 
                                             Text="{Binding Capital}"
                                             TextColor="Black">
-                                    </Label>
-                                </StackLayout>
-                                
-                                <Image
+                                        </Label>
+                                    </StackLayout>
+
+                                    <Image
                                 Grid.Column="2"
                                 Source="ic_chevron_right"/>
-                            </Grid>
-                        </Frame>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
- 
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
+        </StackLayout>
+
+        <busyindicator:SfBusyIndicator  
+                AnimationType="Gear"
+                AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
+                AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="Lime"
+                HorizontalOptions="Center"
+                TextColor="Black"
+                IsVisible="{Binding IsRunning}"
+                Title="Loading..."
+                VerticalOptions="Center"
+                ViewBoxWidth="80"
+                ViewBoxHeight="80" />
+        
+    </AbsoluteLayout>
 </ContentPage>

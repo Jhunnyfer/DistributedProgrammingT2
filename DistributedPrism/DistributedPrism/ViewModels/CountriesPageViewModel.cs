@@ -65,6 +65,9 @@ namespace DistributedPrism.ViewModels
                 return;
             }
 
+            IsRunning = true;
+            IsEnabled = false;
+
             ///Get all Countries
             var response = await _apiService.GetCountries(url, "/rest/", "v2/all");
 
@@ -84,8 +87,14 @@ namespace DistributedPrism.ViewModels
                Acronym=c.Acronym,
                Capital =c.Capital,
                Flag = c.Flag,
-               NativeName = c.NativeName
+               NativeName = c.NativeName,
+               Region = c.Region,
+               Area = c.Area
             }).ToList());
+
+
+            IsRunning = false;
+            IsEnabled = true;
 
             //var countries = response.Result;
             Settings.Countries = JsonConvert.SerializeObject(_countries);

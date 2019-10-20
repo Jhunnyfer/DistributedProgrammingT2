@@ -2,9 +2,9 @@
 
 namespace DistributedPrism.Views
 {
-    public partial class Country : ContentPage
+    public partial class MapCountriesPage : ContentPage
     {
-        public Country()
+        public MapCountriesPage()
         {
             InitializeComponent();
         }

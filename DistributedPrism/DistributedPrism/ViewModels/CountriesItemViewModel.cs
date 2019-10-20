@@ -26,7 +26,7 @@ namespace DistributedPrism.ViewModels
                 { "country", this }
             };
 
-            await _navigationService.NavigateAsync("Country", parameters);
+            await _navigationService.NavigateAsync("CountryPage", parameters);
         }
 
 
