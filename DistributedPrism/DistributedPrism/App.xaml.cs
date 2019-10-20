@@ -26,7 +26,7 @@ namespace DistributedPrism
 
         protected override async void OnInitialized()
         {
-            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTM3Njg0QDMxMzcyZTMyMmUzMGUvQlg3Tnk5ODRGQ01pbzNnWmEyWHdWcExaaUVOQ0FKODZGNDFpekRtd2M9");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MTU5NjUzQDMxMzcyZTMzMmUzMGdWbEtHaTF1bkVGdHdOQ3Y3WGppYVdmY29vZU9SVU5SUis4M09pSmlyQWc9");
 
             InitializeComponent();
 
