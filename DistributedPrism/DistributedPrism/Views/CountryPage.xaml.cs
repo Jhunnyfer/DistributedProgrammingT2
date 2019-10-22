@@ -1,4 +1,7 @@
-﻿using Xamarin.Forms;
+﻿using Plugin.Geolocator;
+using System;
+using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 
 namespace DistributedPrism.Views
 {
