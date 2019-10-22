@@ -4,6 +4,8 @@ using System.Text;
 using Prism.Commands;
 using Prism.Navigation;
 using DistributedProgrammingT2.Common.Models;
+using DistributedProgrammingT2.Common.Helpers;
+using Newtonsoft.Json;
 
 namespace DistributedPrism.ViewModels
 {
@@ -26,15 +28,9 @@ namespace DistributedPrism.ViewModels
                 { "country", this }
             };
 
+            Settings.Country = JsonConvert.SerializeObject(this);
+
             await _navigationService.NavigateAsync("CountryPage", parameters);
         }
-
-
-        /*public DelegateCommand NavigateCommandCountry => _navigateCommand ?? (_navigateCommand = new DelegateCommand(ExecuteNavigateCommmand));
-
-        async void ExecuteNavigateCommmand()
-        {
-            await _navigationService.NavigateAsync("Country");
-        }*/
     }
 }

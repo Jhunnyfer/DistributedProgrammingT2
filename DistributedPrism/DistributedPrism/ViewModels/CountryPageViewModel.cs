@@ -34,11 +34,8 @@ namespace DistributedPrism.ViewModels
             if (parameters.ContainsKey("country"))
             {
                 base.OnNavigatedTo(parameters);
-                //_country = JsonConvert.DeserializeObject<CountryResponse>(Settings.Countries);
                 Country = parameters.GetValue<CountryResponse>("country");
                 Title = _country.Name;
-
-               
             }
         }
     }

@@ -68,9 +68,26 @@
                         Grid.Column="1"
                         Grid.Row="4"
                         Text="{Binding Country.Area}"/>
+
+                    <Label
+                        x:Name="Latitude"
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        Text="{Binding Country.Area}"/>
+
+                    <Label
+                        x:Name="Longitude "
+                        Grid.Column="1"
+                        Grid.Row="4"
+                        Text="{Binding Country.Area}"/>
                 </Grid>
                 
-                <maps:Map x:Name="MapView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                <maps:Map x:Name="MapView" 
+                          HorizontalOptions="FillAndExpand" 
+                          VerticalOptions="FillAndExpand"
+                          HeightRequest="300"
+                          
+                          WidthRequest="100"/>
                         
                 
             </StackLayout>

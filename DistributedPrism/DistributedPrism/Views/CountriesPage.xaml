@@ -14,7 +14,7 @@
             <SearchBar x:Name="CountriesSearchBar"  
                  Text="{ Binding Filter, Mode=TwoWay}"
                  Placeholder="Search..."
-                 BackgroundColor="#FBCBF3"
+                 BackgroundColor="Transparent"
                  SearchCommand="{ Binding SearchCommand}"  
                  />
             <Grid>
