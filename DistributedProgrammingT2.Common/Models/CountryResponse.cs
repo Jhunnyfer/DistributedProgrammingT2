@@ -78,8 +78,9 @@ namespace DistributedProgrammingT2.Common.Models
 
         [JsonProperty(PropertyName = "regionalBlocs")]
         public List<RegionalBlocReponse> RegionalBlocs { get; set; }
+        */
 
         [JsonProperty(PropertyName = "cioc")]
-        public string Cioc { get; set; }*/
+        public string Cioc { get; set; }
     }
 }

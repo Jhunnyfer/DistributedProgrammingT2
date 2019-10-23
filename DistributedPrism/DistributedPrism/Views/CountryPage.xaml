@@ -7,17 +7,17 @@
              xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DistributedPrism.Views.CountryPage"
-             Title="{Binding Title}"
+             IconImageSource="ic_info"
              >
 
     <StackLayout
-        Padding="10">
+        Padding="5">
         <ScrollView>
             <StackLayout>
                 <ffimageloadingsvg:SvgCachedImage
                                     Grid.Column="0"
-                                    HeightRequest="30"
-                                    WidthRequest="60"
+                                    HeightRequest="400"
+                                    WidthRequest="300"
                                     Source="{ Binding Country.Flag }"/>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -25,6 +25,12 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
@@ -59,6 +65,7 @@
                         Grid.Column="1"
                         Grid.Row="3"
                         Text="{Binding Country.NativeName}"/>
+                    
                     <Label
                         Grid.Column="0"
                         Grid.Row="4"
@@ -69,26 +76,128 @@
                         Grid.Row="4"
                         Text="{Binding Country.Area}"/>
 
-                    <Label
-                        x:Name="Latitude"
-                        Grid.Column="1"
-                        Grid.Row="4"
-                        Text="{Binding Country.Area}"/>
+
+
 
                     <Label
-                        x:Name="Longitude "
+                        Grid.Column="0"
+                        Grid.Row="5"
+                        FontAttributes="Bold"
+                        Text="Region"/>
+                    <Label
                         Grid.Column="1"
-                        Grid.Row="4"
+                        Grid.Row="5"
+                        Text="{Binding Country.Region}"/>
+
+
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="6"
+                        FontAttributes="Bold"
+                        Text="Subregion"/>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="6"
+                        Text="{Binding Country.Subregion}"/>
+
+
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="7"
+                        FontAttributes="Bold"
+                        Text="Alpha2Code"/>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="7"
+                        Text="{Binding Country.Alpha2Code}"/>
+
+
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="8"
+                        FontAttributes="Bold"
+                        Text="Alpha3Code"/>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="8"
+                        Text="{Binding Country.Alpha3Code}"/>
+
+
+
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="9"
+                        FontAttributes="Bold"
+                        Text="Population"/>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="9"
+                        Text="{Binding Country.Population}"/>
+
+
+
+
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="10"
+                        FontAttributes="Bold"
+                        Text="Demonym"/>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="10"
+                        Text="{Binding Country.Demonym}"/>
+
+
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="11"
+                        FontAttributes="Bold"
+                        Text="Gini"/>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="11"
+                        Text="{Binding Country.Gini}"/>
+
+
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="12"
+                        FontAttributes="Bold"
+                        Text="NumericCode"/>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="12"
+                        Text="{Binding Country.NumericCode}"/>
+
+
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="13"
+                        FontAttributes="Bold"
+                        Text="Area"/>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="13"
                         Text="{Binding Country.Area}"/>
+
+
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="14"
+                        FontAttributes="Bold"
+                        Text="Cioc"/>
+                    <Label
+                        Grid.Column="1"
+                        Grid.Row="14"
+                        Text="{Binding Country.Cioc}"/>
+
+
+
+
+
                 </Grid>
                 
-                <maps:Map x:Name="MapView" 
-                          HorizontalOptions="FillAndExpand" 
-                          VerticalOptions="FillAndExpand"
-                          HeightRequest="300"
-                          
-                          WidthRequest="100"/>
-                        
+                       
                 
             </StackLayout>
             

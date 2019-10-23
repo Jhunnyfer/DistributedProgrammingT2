@@ -30,7 +30,7 @@ namespace DistributedPrism.ViewModels
 
             Settings.Country = JsonConvert.SerializeObject(this);
 
-            await _navigationService.NavigateAsync("CountryPage", parameters);
+            await _navigationService.NavigateAsync("CountryTabbedPage", parameters);
         }
     }
 }

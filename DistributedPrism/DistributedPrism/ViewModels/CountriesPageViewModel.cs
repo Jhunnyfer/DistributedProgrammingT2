@@ -18,7 +18,7 @@ namespace DistributedPrism.ViewModels
 
         private ObservableCollection<CountriesItemViewModel> _listCountries;
         private List<CountryResponse> _countries;
-        private String filter;
+        private String _filter;
         private DelegateCommand _navigateCommand;
         private bool _isRunning;
         private bool _isEnabled;
@@ -56,8 +56,12 @@ namespace DistributedPrism.ViewModels
 
         public String Filter
         {
-            get => this.filter;
-            set => SetProperty(ref this.filter, value);
+            get => _filter;
+            set
+            {
+                SetProperty(ref _filter, value);
+                Search();
+            }
         }
 
         private async void LoadAllCountries() {
@@ -107,8 +111,16 @@ namespace DistributedPrism.ViewModels
                 Flag = c.Flag,
                 NativeName = c.NativeName,
                 Region = c.Region,
+                Subregion = c.Subregion,
                 Latlng = c.Latlng,
-                Area = c.Area
+                Alpha2Code = c.Alpha2Code,
+                Alpha3Code = c.Alpha3Code,
+                Population = c.Population,
+                Demonym = c.Demonym,
+                Gini = c.Gini,
+                NumericCode =c.NumericCode,
+                Area = c.Area,
+                Cioc =c.Cioc
             }).ToList());
 
             IsRunning = false;
@@ -128,9 +140,11 @@ namespace DistributedPrism.ViewModels
 
         private void Search()
         {
-            if (string.IsNullOrEmpty(this.Filter))
+            if (string.IsNullOrEmpty(_filter))
             {
-                ListCountries = new ObservableCollection<CountriesItemViewModel>(Countries.Select(c => new CountriesItemViewModel(_navigationService)
+                ListCountries = new ObservableCollection<CountriesItemViewModel
+                                            
+                    >(_countries.Select(c => new CountriesItemViewModel(_navigationService)
                 {
                     Name = c.Name,
                     Acronym = c.Acronym,
@@ -144,20 +158,9 @@ namespace DistributedPrism.ViewModels
             }
             else
             {
-                ListCountries = new ObservableCollection<CountriesItemViewModel>(
-                    Countries.Select(c => new CountriesItemViewModel(_navigationService)
-                    {
-                        Name = c.Name,
-                        Acronym = c.Acronym,
-                        Capital = c.Capital,
-                        Flag = c.Flag,
-                        NativeName = c.NativeName,
-                        Region = c.Region,
-                        Latlng = c.Latlng,
-                        Area = c.Area
-                    }).ToList().Where(
-                        l => l.Name.ToLower().Contains(this.Filter.ToLower()) ||
-                             l.Capital.ToLower().Contains(this.Filter.ToLower())));
+                ListCountries = new ObservableCollection<CountriesItemViewModel>(ListCountries.Where(
+                        l => l.Name.ToLower().Contains(_filter.ToLower()) ||
+                             l.Capital.ToLower().Contains(_filter.ToLower())));
             }
         }
 

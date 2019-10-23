@@ -41,6 +41,10 @@ namespace DistributedPrism
             containerRegistry.RegisterForNavigation<CountriesPage, CountriesPageViewModel>();
             containerRegistry.RegisterForNavigation<MapCountriesPage, MapCountriesPageViewModel>();
             containerRegistry.RegisterForNavigation<MapCountryPage, MapCountryPageViewModel>();
+            containerRegistry.RegisterForNavigation<CountryTabbedPage, CountryTabbedPageViewModel>();
+            containerRegistry.RegisterForNavigation<CurrenciesPage, CurrenciesPageViewModel>();
+            containerRegistry.RegisterForNavigation<LanguagesPage, LanguagesPageViewModel>();
+            containerRegistry.RegisterForNavigation<BordersPage1, BordersPageViewModel>();
         }
     }
 }
